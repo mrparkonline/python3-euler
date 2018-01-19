@@ -9,21 +9,27 @@ def primeFactors(n):
     --return
     list : prime factors of n
     """
-
-    factors = []
-    while n % 2 == 0:
-        factors.append(2)
-        n //= 2
-    # end of while
-
-    for i in range(3,math.floor(math.sqrt(n)),2):
-        while n % i == 0:
-            factors.append(i)
-            n //= i
+    if n < 2:
+        return []
+    elif n in {2,3}:
+        return [n]
+    else:
+        factors = []
+        while n % 2 == 0:
+            factors.append(2)
+            n //= 2
         # end of while
-    # end of for
 
-    return factors
+        for i in range(3,math.floor(math.sqrt(n))+1,2):
+            while n % i == 0:
+                factors.append(i)
+                n //= i
+            # end of while
+        # end of for
+        if not(factors):
+            factors = [n]
+
+        return factors
 # end of primeFactors
 
 print(primeFactors(600851475143)[-1])
