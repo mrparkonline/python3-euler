@@ -15,11 +15,8 @@ def fibUnderN(n):
     ctr = 2
 
     while (fibs[-1] + fibs[-2]) < n:
-        temp = fibs[ctr-1] + fibs[ctr-2]
-        if temp < n:
-            fibs.append(temp)
+        fibs.append(fibs[ctr-1] + fibs[ctr-2])
         ctr += 1
-
 
     return fibs.copy()
 # end of fibUnderN
