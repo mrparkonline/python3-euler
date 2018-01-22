@@ -51,6 +51,7 @@ def collatzSet(upperLimit):
         else:
             return [start] + collatzSequence(nextValue)
 
+    # Creating the dicionary set
     for i in range(2,upperLimit):
         if i not in data.keys():
             data[i] = collatzSequence(i)
